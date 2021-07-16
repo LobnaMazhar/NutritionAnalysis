@@ -1,0 +1,260 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tnvm"
+            type="lobna.asset.nutrition.analysis.ui.total.TotalNutritionViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.total.TotalNutritionActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:elevation="0dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_back"
+                app:title="@string/total_nutrition"
+                app:titleTextColor="@color/colorDarkText"
+                bind:onBackListener="@{tnvm.onBackClicked}" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/calories_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_size_medium"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/calories"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/calories_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_padding_size_medium"
+                    android:text="@{tnvm.caloriesObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/calories_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/calories_title" />
+
+                <TextView
+                    android:id="@+id/fat_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/fat"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/calories_title" />
+
+                <TextView
+                    android:id="@+id/fat_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.fatObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/fat_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/fat_title" />
+
+                <TextView
+                    android:id="@+id/cholesterol_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/cholesterol"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/fat_title" />
+
+                <TextView
+                    android:id="@+id/cholesterol_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.cholesterolObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/cholesterol_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/cholesterol_title" />
+
+                <TextView
+                    android:id="@+id/sodium_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/sodium"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/cholesterol_title" />
+
+                <TextView
+                    android:id="@+id/sodium_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.sodiumObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/sodium_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/sodium_title" />
+
+                <TextView
+                    android:id="@+id/carbohydrate_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/carbohydrate_fiber_sugar"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/sodium_title" />
+
+                <TextView
+                    android:id="@+id/carbohydrate_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.carbohydrateObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/carbohydrate_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/carbohydrate_title" />
+
+                <TextView
+                    android:id="@+id/protein_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/protein"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/carbohydrate_title" />
+
+                <TextView
+                    android:id="@+id/protein_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.proteinObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/protein_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/protein_title" />
+
+                <TextView
+                    android:id="@+id/vitamin_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/vitamin"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/protein_title" />
+
+                <TextView
+                    android:id="@+id/vitamin_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.vitaminObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/vitamin_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/vitamin_title" />
+
+                <TextView
+                    android:id="@+id/calcium_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/calcium"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/vitamin_title" />
+
+                <TextView
+                    android:id="@+id/calcium_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.calciumObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/calcium_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/calcium_title" />
+
+                <TextView
+                    android:id="@+id/iron_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:gravity="center"
+                    android:text="@string/iron"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/calories_title"
+                    app:layout_constraintTop_toBottomOf="@id/calcium_title" />
+
+                <TextView
+                    android:id="@+id/iron_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.ironObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/iron_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/iron_title" />
+
+                <TextView
+                    android:id="@+id/potassium_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:layout_marginBottom="@dimen/margin_padding_size_large"
+                    android:gravity="center"
+                    android:text="@string/potassium"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/iron_title"
+                    app:layout_constraintTop_toBottomOf="@id/iron_title"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/potassium_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{tnvm.potassiumObservable}"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@id/potassium_title"
+                    app:layout_constraintEnd_toEndOf="@id/calories_value"
+                    app:layout_constraintTop_toTopOf="@id/potassium_title" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

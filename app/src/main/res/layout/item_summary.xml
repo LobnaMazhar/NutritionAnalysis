@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="lobna.asset.nutrition.analysis.data.IngredientAnalysis" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/qty_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:gravity="center"
+            android:text="@string/quantity"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/unit_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/qty_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(item.qty)}"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@id/qty_title"
+            app:layout_constraintStart_toStartOf="@id/qty_title"
+            app:layout_constraintTop_toBottomOf="@id/qty_title" />
+
+        <TextView
+            android:id="@+id/unit_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/unit"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/qty_title"
+            app:layout_constraintEnd_toStartOf="@id/food_title"
+            app:layout_constraintStart_toEndOf="@id/qty_title"
+            app:layout_constraintTop_toTopOf="@id/qty_title" />
+
+        <TextView
+            android:id="@+id/unit_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.unit}"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@id/unit_title"
+            app:layout_constraintStart_toStartOf="@id/unit_title"
+            app:layout_constraintTop_toBottomOf="@id/unit_title" />
+
+        <TextView
+            android:id="@+id/food_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_padding_size_medium"
+            android:gravity="center"
+            android:text="@string/food"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/qty_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/unit_title"
+            app:layout_constraintTop_toTopOf="@id/qty_title" />
+
+        <TextView
+            android:id="@+id/food_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.food}"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@id/food_title"
+            app:layout_constraintStart_toStartOf="@id/food_title"
+            app:layout_constraintTop_toBottomOf="@id/food_title" />
+
+        <TextView
+            android:id="@+id/calories_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_small"
+            android:gravity="center"
+            android:text="@string/calories"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/weight_title"
+            app:layout_constraintStart_toStartOf="@id/qty_title"
+            app:layout_constraintTop_toBottomOf="@id/qty_value" />
+
+        <TextView
+            android:id="@+id/calories_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium"
+            android:text="@{String.valueOf(item.calories) + ' ' + @string/cal}"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/calories_title"
+            app:layout_constraintStart_toStartOf="@id/calories_title"
+            app:layout_constraintTop_toBottomOf="@id/calories_title" />
+
+        <TextView
+            android:id="@+id/weight_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/weight"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/calories_title"
+            app:layout_constraintEnd_toEndOf="@id/food_title"
+            app:layout_constraintStart_toEndOf="@id/calories_title"
+            app:layout_constraintTop_toTopOf="@id/calories_title" />
+
+        <TextView
+            android:id="@+id/weight_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(item.totalWeight) + ' ' + @string/grams}"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@id/weight_title"
+            app:layout_constraintStart_toStartOf="@id/weight_title"
+            app:layout_constraintTop_toBottomOf="@id/weight_title" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
